@@ -1,15 +1,23 @@
 const flights = [
     {
-        flightNumber: 1,
-        startingLocation: 'Baltimore, MD',
-        endingLocation: 'Washington, DC',
+        flightNumber: 427835,
+        departure: 'Baltimore, MD',
+        arrival: 'Washington, DC',
         souls: 4,
         aircraftType: 'Sikorsky S-92',
         id: 1
-        }
+        },
+    { 
+        flightNumber: 980445,
+        departure: 'Miami, FL',
+        arrival: 'West Palm Beach, FL',
+        souls: 3,
+        aircraftType: 'Bell 206',
+        id: 2
+    }     
 ]
 
-let id = 2;
+let id = 3;
 
 
 module.exports = {
@@ -20,16 +28,16 @@ module.exports = {
     addFlight: (req, res) => {
         const {
             flightNumber,
-            startingLocation,
-            endingLocation,
+            departure,
+            arrival,
             souls,
             aircraftType,
         } = req.body
 
         const newFlight = {
             flightNumber,
-            startingLocation,
-            endingLocation,
+            departure,
+            arrival,
             souls,
             aircraftType,
             id,
@@ -38,5 +46,27 @@ module.exports = {
         
         flights.push(newFlight);
         res.status(200).send(flights);
+    },
+
+    updateFlight: (req, res) => {
+        const {
+            flightNumber,
+            arrival,
+            departure
+        } = req.body
+
+        // const updatedFlight = {
+        //     flightNumber,
+        //     departure,
+        //     arrival,
+        //     souls,
+        //     aircraftType,
+        //     id,
+        // }
+        res.status(200).send(flights)
+    },
+
+    deleteFlight: (req,res) => {
+
     }
 }
