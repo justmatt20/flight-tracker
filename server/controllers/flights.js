@@ -14,10 +14,26 @@ const flights = [
         souls: 3,
         aircraftType: 'Bell 206',
         id: 2
-    }     
+    },  
+    {
+        flightNumber: 85303,
+        departure: 'Park City, UT',
+        arrival: 'Salt Lake City, UT',
+        souls: 4,
+        aircraftType: 'Eurocopter Dauphin',
+        id: 3
+    },
+    {
+        flightNumber: 482657,
+        departure: 'Frederick, MD',
+        arrival: 'Bethesda, MD',
+        souls: 5,
+        aircraftType: 'AW-139',
+        id: 4
+    }
 ]
 
-let id = 3;
+let id = 5;
 
 
 module.exports = {
@@ -51,22 +67,24 @@ module.exports = {
     updateFlight: (req, res) => {
         const {
             flightNumber,
+            departure,
             arrival,
-            departure
-        } = req.body
+            souls,
+            aircraftType,
+        } = req.body 
 
-        // const updatedFlight = {
-        //     flightNumber,
-        //     departure,
-        //     arrival,
-        //     souls,
-        //     aircraftType,
-        //     id,
-        // }
+        const updatedFlight = {
+            flightNumber,
+            departure,
+            arrival,
+            souls,
+            aircraftType,
+            id,
+        }
         res.status(200).send(flights)
     },
 
     deleteFlight: (req,res) => {
-
+        res.status(200).send(flights)
     }
 }
