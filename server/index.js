@@ -9,8 +9,8 @@ app.use(express.json());
 
 app.get('/api/flights', getFlights)
 app.post('/api/flights', addFlight)
-app.put('/api/flights', updateFlight)
-app.delete('/api/flights', deleteFlight)
+app.put('/api/flights/:id', updateFlight)
+app.delete('/api/flights/:id', deleteFlight)
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

@@ -1,3 +1,5 @@
+// const = require("express"); 
+
 const flights = [
     {
         flightNumber: 427835,
@@ -32,8 +34,10 @@ const flights = [
         id: 4
     }
 ]
+const dataTypes = JSON.stringify(flights)
 
 let id = 5;
+
 
 
 module.exports = {
@@ -65,26 +69,27 @@ module.exports = {
     },
 
     updateFlight: (req, res) => {
-        const {
-            flightNumber,
-            departure,
-            arrival,
-            souls,
-            aircraftType,
-        } = req.body 
+        const { id } = req.params;
+        const updated = req.body;
+        const indexFlight= flights.findIndex(flight => flight.id === id)
 
-        const updatedFlight = {
-            flightNumber,
-            departure,
-            arrival,
-            souls,
-            aircraftType,
-            id,
+        if (indexFlight !== -1) {
+            flights[indexFlight] = updated;
+            res.status(200).send(flights)
         }
-        res.status(200).send(flights)
+        
     },
 
     deleteFlight: (req,res) => {
-        res.status(200).send(flights)
+        const { id } = req.params;
+        const deletedFlight = flights.find(flight => flight.id === id)
+        if (deletedFlight) {
+            flights = flights.filter(flight => flight.id !== id)
+            res.status(200).send(flights)
+        // } else {
+            // res.status(404).send({message: 'The flight you are looking for does not exist.'})
+            // res.sendStatus()
+        }
     }
+
 }
