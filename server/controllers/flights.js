@@ -7,7 +7,7 @@ const flights = [
         arrival: 'Washington, DC',
         souls: 4,
         aircraftType: 'Sikorsky S-92',
-        id: 1
+        id: "1"
         },
     { 
         flightNumber: 980445,
@@ -15,7 +15,7 @@ const flights = [
         arrival: 'West Palm Beach, FL',
         souls: 3,
         aircraftType: 'Bell 206',
-        id: 2
+        id: "2"
     },  
     {
         flightNumber: 85303,
@@ -23,7 +23,7 @@ const flights = [
         arrival: 'Salt Lake City, UT',
         souls: 4,
         aircraftType: 'Eurocopter Dauphin',
-        id: 3
+        id: "3"
     },
     {
         flightNumber: 482657,
@@ -31,12 +31,28 @@ const flights = [
         arrival: 'Bethesda, MD',
         souls: 5,
         aircraftType: 'AW-139',
-        id: 4
+        id: "4"
+    },
+    {
+        flightNumber: 768907,
+        departure: 'Los Angeles, CA',
+        arrival: 'San Diego, CA',
+        souls: 2,
+        aircraftType: 'Eurocopter EC135',
+        id: "5"  
+    },
+    {
+        flightNumber: 134565,
+        departure: 'Columbia, MO',
+        arrival: 'Macon, MO',
+        souls: 6,
+        aircraftType: 'Airbus H135',
+        id: "6"  
     }
 ]
-const dataTypes = JSON.stringify(flights)
+// const dataTypes = JSON.stringify(flights)
 
-let id = 5;
+let id = "7";
 
 
 
@@ -84,7 +100,7 @@ module.exports = {
         const { id } = req.params;
         const deletedFlight = flights.find(flight => flight.id === id)
         if (deletedFlight) {
-            flights = flights.filter(flight => flight.id !== id)
+            flights.filter(flight => flight.id !== id)
             res.status(200).send(flights)
         // } else {
             // res.status(404).send({message: 'The flight you are looking for does not exist.'})

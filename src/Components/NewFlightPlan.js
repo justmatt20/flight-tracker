@@ -33,12 +33,12 @@ class NewFlightPlan extends Component {
     render() {
         return (
             <div className="form_container">
-                <input className="new_flight" name="flightNumber" onChange={this.handleChange} placeholder="Flight Number" required/>
-                <input className="new_flight" name="departure" onChange={this.handleChange} placeholder="Departure" required/>
-                <input className="new_flight" name="arrival" onChange={this.handleChange} placeholder="Arrival" required/>
+                <input className="new_flight" name="flightNumber" onChange={this.handleChange} placeholder="Flight Number" required />
+                <input className="new_flight" name="departure" onChange={this.handleChange} placeholder="Departure (City, State)" required/>
+                <input className="new_flight" name="arrival" onChange={this.handleChange} placeholder="Arrival (City, State)" required/>
                 <input className="new_flight" name="souls" onChange={this.handleChange} placeholder="Souls on Board" required/>
                 <input className="new_flight" name="aircraftType" onChange={this.handleChange} placeholder="Aircraft Type" required/>
-                <button className="flight_button" onClick={this.handleClick}>Create Flight Plan</button>
+                <button className="flight_button" onClick={this.handleClick}>Start New Flight</button>
             </div>
         )
     }
