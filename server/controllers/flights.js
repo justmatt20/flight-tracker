@@ -3,51 +3,51 @@
 const flights = [
     {
         flightNumber: 427835,
-        departure: 'Baltimore, MD',
-        arrival: 'Washington, DC',
+        departure: 'MTN',
+        arrival: 'HGR',
         souls: 4,
         aircraftType: 'Sikorsky S-92',
         id: "1"
         },
     { 
         flightNumber: 980445,
-        departure: 'Miami, FL',
-        arrival: 'West Palm Beach, FL',
+        departure: 'ESN',
+        arrival: 'SBY',
         souls: 3,
         aircraftType: 'Bell 206',
         id: "2"
     },  
     {
         flightNumber: 85303,
-        departure: 'Park City, UT',
-        arrival: 'Salt Lake City, UT',
+        departure: 'NHK',
+        arrival: 'ADW',
         souls: 4,
         aircraftType: 'Eurocopter Dauphin',
         id: "3"
     },
     {
         flightNumber: 482657,
-        departure: 'Frederick, MD',
-        arrival: 'Bethesda, MD',
+        departure: '2W6',
+        arrival: 'ADW',
         souls: 5,
         aircraftType: 'AW-139',
         id: "4"
     },
     {
         flightNumber: 768907,
-        departure: 'Los Angeles, CA',
-        arrival: 'San Diego, CA',
+        departure: 'FDK',
+        arrival: 'MTN',
         souls: 2,
         aircraftType: 'Eurocopter EC135',
         id: "5"  
     },
     {
         flightNumber: 134565,
-        departure: 'Columbia, MO',
-        arrival: 'Macon, MO',
+        departure: 'SBY',
+        arrival: '2W6',
         souls: 6,
         aircraftType: 'Airbus H135',
-        id: "6"  
+        id: "6" 
     }
 ]
 // const dataTypes = JSON.stringify(flights)
@@ -86,14 +86,18 @@ module.exports = {
 
     updateFlight: (req, res) => {
         const { id } = req.params;
-        const updated = req.body;
-        const indexFlight= flights.findIndex(flight => flight.id === id)
+        const updatedLoc = req.body;
+        // const indexFlight= flights.findIndex(flight => flight.id === id)
 
-        if (indexFlight !== -1) {
-            flights[indexFlight] = updated;
+        // if (indexFlight !== -1) {
+        //     flights[indexFlight] = updated;
+        //     res.status(200).send(flights)
+        // }
+        if (flights["flight"+ id] !== -1) {
+            flights["flight" + id] === updatedLoc;
+            // console.log("success")
             res.status(200).send(flights)
         }
-        
     },
 
     deleteFlight: (req,res) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link } from "react-router-dom";
+// import { BrowserRouter, Link } from "react-router-dom";
 
 
 
@@ -9,9 +9,9 @@ function Header() {
         <div className="header">
             <h1>Helicopter Flight Tracker</h1>
             {/* <img className="rescue_img"src="/images/rescuehelo.png" alt="rescue helicopter"/> */}
-            <BrowserRouter className="link">
+            {/* <BrowserRouter className="link">
                 <Link className="link" to="/components/NewFlightPlan">Start A new Flight Plan</Link>
-            </BrowserRouter>
+            </BrowserRouter> */}
             {/* <img className="heli" src=""/> */}
         </div>
     )

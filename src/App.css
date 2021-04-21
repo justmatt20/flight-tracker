@@ -12,32 +12,23 @@ body {
     width: auto;
     background-color: black;
     color: white;
-    padding: 8px;
+    padding: 28px;
     opacity: 0.8;
 }
 
 
-.link {
-    -webkit-text-fill-color: rgb(11, 170, 37); /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 0.2px;
-    -webkit-text-stroke-color: rgb(255, 255, 255);
-    text-decoration-color: yellow;
-    letter-spacing: 1px;
+
+.new {
     display: flex;
-    /* margin: 6px; */
     justify-content: center;
-    font-size: 14px;
+    background-color: rgb(26, 128, 0);
+    opacity: 0.9;
+    
 }
 
-/* .rescue_img {
-    height: 150px;
-    width: 130px;
-    display: flex; 
-    flex-direction: ;
-
-} */
 
 .container {
+    /* change to picture of just Maryland */
     background-image: url(https://cdn11.bigcommerce.com/s-5luen2shhj/images/stencil/1280x1280/products/179/442/us_topo_bathy_borders_labels_mural_lg__55949.1560354152.jpg?c=2);
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,6 +42,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    flex-basis: 33.333333%;
     margin-top: 10px;
 }
 
@@ -66,12 +58,24 @@ body {
     opacity: 0.9;
     height: fit-content;
     width: fit-content;
+    flex-basis: 25%;
     padding: 10px;
     margin: 10px;
     border: 2px solid black;
     border-radius: 5px;
-    background-color: rgb(228, 222, 222);
+    background-color: rgb(228, 227, 222);
     text-align: center;
+    box-shadow: 1px 1px 10px 4px rgba(0,0,0,0.75);
+}
+
+.body_container:nth-child(even){
+    background-color: rgb(167, 166, 166);
+    opacity: 0.9;
+}
+
+.id {
+    display: flex;
+    justify-content: left;
 }
 
 
@@ -85,7 +89,7 @@ h2, p {
 }
 
 .key {
-    color: rgb(61, 58, 58);
+    color: rgb(3, 38, 194);
 }
 
 .value {
@@ -95,19 +99,15 @@ h2, p {
 
 .h2 {
     color: black;
-    -webkit-text-fill-color: rgb(8, 44, 209); /* Will override color (regardless of order) */
-    /* -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: rgb(66, 65, 65); */
-    /* color: rgb(12, 23, 182);
-    text-decoration: aqua; */
+    -webkit-text-fill-color: rgb(8, 44, 209); 
 }
 
-button{
+.buttons{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 6px;
-    margin: 6px;
     font-family: 'Roboto Mono';
 }
 
@@ -124,6 +124,7 @@ button{
     border: 1px solid black;
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
     cursor: pointer;
+    border-radius: 6px;
 }
 
 .edit_button {
@@ -131,6 +132,13 @@ button{
     border: 1px solid black;
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
     cursor: pointer;
+    margin-bottom: 6px;
+    border-radius: 6px;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
 }
 
 .form_container {
