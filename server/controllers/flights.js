@@ -50,6 +50,30 @@ const flights = [
         id: "6" 
     }
 ]
+
+const departure = {
+    stMarys: "2W6",
+    frederick: "FDK",
+    andrews: "AFB",
+    martins: "MTN", 
+    oc: "OXB",
+    pax: "NHK",
+    easton: "ESN",
+    hagerstown: "HGR",
+    salisbury: "SBY",
+}
+
+const arrival = {
+    stMarys: "2W6",
+    frederick: "FDK",
+    andrews: "AFB",
+    martins: "MTN", 
+    oc: "OXB",
+    pax: "NHK",
+    easton: "ESN",
+    hagerstown: "HGR",
+    salisbury: "SBY",
+}
 // const dataTypes = JSON.stringify(flights)
 
 let id = "7";
@@ -84,20 +108,28 @@ module.exports = {
         res.status(200).send(flights);
     },
 
+    // updateFlight: (req, res) => {
+    //     const { id } = req.params;
+    //     // const {updatedLoc} = req.body;
+    //     const { arrival } = req.body;
+    //     const updatedArr = {
+    //         arrival,
+    //     }
+        
+    //     if ( id === id) {
+    //         flights.splice(flights[2].arrival , 0, updatedArr)
+    //         res.status(200).send(flights)
+    //     }
+    //     },
+    
     updateFlight: (req, res) => {
-        const { id } = req.params;
-        const updatedLoc = req.body;
-        // const indexFlight= flights.findIndex(flight => flight.id === id)
-
-        // if (indexFlight !== -1) {
-        //     flights[indexFlight] = updated;
-        //     res.status(200).send(flights)
-        // }
-        if (flights["flight"+ id] !== -1) {
-            flights["flight" + id] === updatedLoc;
-            // console.log("success")
-            res.status(200).send(flights)
+        const {id} = req.params;
+        const {image} = req.body;
+        const newImage = flights.find(flight => flight.id === id)
+        if (newImage) {
+            flights.push(image)
         }
+        res.status(200).send(flights)
     },
 
     deleteFlight: (req,res) => {
