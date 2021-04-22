@@ -4,7 +4,8 @@ import './App.css';
 import axios from 'axios';
 import NewFlightPlan from './Components/NewFlightPlan'
 import Header from './Components/Header'
-import Updated from './Components/Updated'
+import Update from './Components/Update'
+import Flights from './Components/Flights'
 
 // import flights from '../server/controllers/flights';
 
@@ -56,29 +57,27 @@ class App extends Component {
         name: "SBY",
         value: "SBY"
         },
-
-    ]
-      // time: [{
-      //   minute: 0,
-      //   second: 0,
-      // }]
+    ],
+      minute: 0,
+      second: 0,
     }
   }
 componentDidMount() {
-//   setInterval(() => {
-//     return  this.setState((state, props) => {
-//       return {
-//       second: state.second === 59 ? 0 : state.second -1,
-//       minute: state.minute === 59 ? state.minute +1 : state.minute }
-//     });
-// }, 1000);
-
 axios.get('/api/flights')
 .then((response) => { this.setState({ flights: response.data })
 })
 .catch((e) => console.log(e)); 
 }
 
+time = () => {
+  setInterval(() => {
+    return  this.setState((state, props) => {
+      return {
+      second: state.second === 59 ? 0 : state.second -1,
+      minute: state.minute === 59 ? state.minute +1 : state.minute }
+    });
+}, 1000);
+}
 
 updateFlights = (flights) => {
   this.setState({ flights })
@@ -99,7 +98,12 @@ openUpdate = () => {
   this.setState({openComponent: !this.state.openComponent});
 }
 
+updateAppState = (newFlights) => {
+  this.setState({flights: newFlights})
+}
+
   render () {
+    console.log(this.state.flights)
     return(
       <div className="container">
         <Header />
@@ -109,26 +113,7 @@ openUpdate = () => {
         <div className="flight_card">
         {this.state.flights.map((flight) => {
           return (
-            <div className="body_container">
-                  <img className="helo" src="/images/helo.png" alt="icon of a helicopter"></img>
-                  <h2 className="number">Flight Number: </h2> <h2 className="value">{flight.flightNumber}</h2>
-                  <p className="key">Departure: </p> <p className="value">{flight.departure}</p>
-                  <p className="key">Arrival: </p> <p className="value"> {flight.arrival}</p>
-                  <p className="key">Souls on Board: </p> <p className="value"> {flight.souls}</p>
-                  <p className="key">Aircraft Type: </p> <p className="value">{flight.aircraftType}</p>
-                  {/* <img className="img_box" alt="url of helicopter">
-                  {this.props.state ? <Updated/> : null}
-                  </img> */}
-                  {/* <p>Flight Time: {this.state.time} </p> */}
-                  {/* <div>{props.image}</div> */}
-              
-              <div className="buttons">
-                <button  className="edit_button" onClick={this.openUpdate}>Add Aircraft Image</button>
-                  {this.state.openComponent ? <Updated /> : null}
-                <button className="landed" onClick={this.deleted.bind(this, flight.id)}>On Ground </button>
-              </div>
-
-            </div>
+            <Flights flights={flight} openUpdate={this.openUpdate} openComponent={this.state.openComponent} deleted={this.deleted} updateAppState={this.updateAppState}/>
           )
   })}
   </div>
