@@ -15,7 +15,6 @@ const flights = [
         arrival: 'SBY',
         souls: 3,
         aircraftType: 'Bell 206',
-        flightTime: '',
         id: "2"
     },  
     {
@@ -52,30 +51,7 @@ const flights = [
     }
 ]
 
-// const departure = {
-//     stMarys: "2W6",
-//     frederick: "FDK",
-//     andrews: "AFB",
-//     martins: "MTN", 
-//     oc: "OXB",
-//     pax: "NHK",
-//     easton: "ESN",
-//     hagerstown: "HGR",
-//     salisbury: "SBY",
-// }
 
-// const arrival = {
-//     stMarys: "2W6",
-//     frederick: "FDK",
-//     andrews: "AFB",
-//     martins: "MTN", 
-//     oc: "OXB",
-//     pax: "NHK",
-//     easton: "ESN",
-//     hagerstown: "HGR",
-//     salisbury: "SBY",
-// }
-// const dataTypes = JSON.stringify(flights)
 
 let id = "7";
 

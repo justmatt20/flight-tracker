@@ -44,6 +44,8 @@ body {
     flex-wrap: wrap;
     flex-basis: 33.333333%;
     margin-top: 10px;
+
+   
 }
 
 .helo {
@@ -66,6 +68,8 @@ body {
     background-color: rgb(228, 227, 222);
     text-align: center;
     box-shadow: 1px 1px 14px 4px rgba(236, 236, 236, 0.75);
+  
+    
 }
 
 .body_container:nth-child(even){
@@ -182,5 +186,9 @@ h2, p {
 
 .form fieldset {
     margin: 20px 0;
+}
+
+.copy{
+    color: white;
 }
 

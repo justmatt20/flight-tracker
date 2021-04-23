@@ -1,5 +1,6 @@
 import React from 'react'
 import Update from './Update'
+import Time from './Time'
 
 function Flights (props) {
     const {flights, openUpdate} = props
@@ -13,6 +14,7 @@ function Flights (props) {
                 <p className="key">Arrival: </p> <p className="value"> {flights.arrival}</p>
                 <p className="key">Souls on Board: </p> <p className="value"> {flights.souls}</p>
                 <p className="key">Aircraft Type: </p> <p className="value">{flights.aircraftType}</p>
+                <p className="key">Local Time: </p> <p className="value"> <Time/> </p>
             
             
             <div className="buttons">

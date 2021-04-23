@@ -22,14 +22,15 @@ class NewFlightPlan extends Component {
         })
     }
 
-    handleClick = () => {
+    handleClick = (e) => {
         const {flightNumber, departure, arrival, souls, aircraftType} = this.state
         axios.post('/api/flights', {flightNumber, departure, arrival, souls, aircraftType})
         // .then((response)=> {console.log(response.data)})
         .then((response) => { this.props.updateFlights(response.data)})
-        .catch((e) => console.log(e));
+        .catch((err) => console.log(err));
         // this.setState({flightNumber: '', departure: '', arrival: '', souls: '', aircraftType: ''})
     }
+
 
     render() {
         return (
@@ -59,12 +60,11 @@ class NewFlightPlan extends Component {
                 <option value="HGR">HGR: Hagerstown</option>
                 <option value="SBY">SBY: Salisbury</option>
             </select>
-                {/* <input className="new_flight" name="departure" onChange={this.handleChange} placeholder="Departure (City, State)" required/>
-                <input className="new_flight" name="arrival" onChange={this.handleChange} placeholder="Arrival (City, State)" required/> */}
                 <input className="new_flight" name="souls" onChange={this.handleChange} placeholder="Souls on Board" required/>
                 <input className="new_flight" name="aircraftType" onChange={this.handleChange} placeholder="Aircraft Type" required/>
-                <button className="flight_button" onClick={this.handleClick}>Start New Flight</button>
+                <button className="flight_button" onClick={this.handleClick} value=''>Start New Flight</button>
             </div>
+            
         )
     }
 }

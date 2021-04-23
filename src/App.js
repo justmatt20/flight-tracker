@@ -7,6 +7,7 @@ import Header from './Components/Header'
 import Update from './Components/Update'
 import Flights from './Components/Flights'
 
+
 // import flights from '../server/controllers/flights';
 
 
@@ -117,6 +118,7 @@ updateAppState = (newFlights) => {
           )
   })}
   </div>
+  
       </div>
     )
   }
