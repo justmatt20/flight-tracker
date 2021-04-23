@@ -27,7 +27,7 @@ class NewFlightPlan extends Component {
         axios.post('/api/flights', {flightNumber, departure, arrival, souls, aircraftType})
         // .then((response)=> {console.log(response.data)})
         .then((response) => { this.props.updateFlights(response.data)})
-        .catch((err) => console.log(err));
+        .catch((e) => console.log(e));
         // this.setState({flightNumber: '', departure: '', arrival: '', souls: '', aircraftType: ''})
     }
 
