@@ -81,7 +81,7 @@ module.exports = {
         }
         id++
         
-        flights.push(newFlight);
+        flights.unshift(newFlight);
         res.status(200).send(flights);
     },
 
